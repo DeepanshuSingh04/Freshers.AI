@@ -35,7 +35,15 @@ services:
         value: http://127.0.0.1:6004
       - key: BILLING_SERVICE_URL
         value: http://127.0.0.1:6005
-      - key: MONGODB_URL
+      - key: AUTH_MONGODB_URL
+        sync: false
+      - key: BILLING_MONGODB_URL
+        sync: false
+      - key: INTERVIEW_MONGODB_URL
+        sync: false
+      - key: RESUME_MONGODB_URL
+        sync: false
+      - key: ROADMAP_MONGODB_URL
         sync: false
       - key: FIREBASE_PROJECT_ID
         sync: false
