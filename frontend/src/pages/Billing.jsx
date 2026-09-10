@@ -101,15 +101,15 @@ function Billing({ user, setUser }) {
                 initial={{ y: -60, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className='sticky top-0 z-20 border-b border-black/8 bg-white/80 backdrop-blur-xl'>
+                className='sticky top-0 z-20 border-b border-white/10 bg-black backdrop-blur-xl'>
                 <div className='mx-auto flex h-12 max-w-7xl items-center justify-between px-3 sm:px-5'>
                     <div onClick={() => navigate("/dashboard")}
                         className='flex cursor-pointer items-center gap-1.5'>
-                        <span className='text-sm font-extrabold sm:text-base text-[#0A0A0A]'>FresherAI</span>
-                        <span className='hidden rounded bg-black/5 px-1.5 py-0.5 text-[10px] text-black/50 sm:block'>Interview Coins</span>
+                        <span className='text-sm font-extrabold sm:text-base text-white'>FresherAI</span>
+                        <span className='hidden rounded bg-white/10 px-1.5 py-0.5 text-[10px] text-white/60 sm:block'>Interview Coins</span>
                     </div>
 
-                    <button onClick={() => setShowMenu(!showMenu)} className='flex h-8 w-8 items-center justify-center rounded-lg border border-black/15 text-black/60 transition hover:border-black/35 hover:text-[#0A0A0A]'>
+                    <button onClick={() => setShowMenu(!showMenu)} className='flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 text-white/70 transition hover:border-white/30 hover:text-white'>
                         {showMenu ? <FiX size={16} /> : <FiMenu size={16} />}
 
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { AnimatePresence, motion } from "motion/react"
 import { GiArtificialHive, GiTwoCoins } from 'react-icons/gi'
 import { FiFileText, FiLogOut, FiMap, FiPlus, FiSidebar, FiStar } from 'react-icons/fi'
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { FaCirclePlus } from "react-icons/fa6";
 
 const NAV_ITEMS = [
@@ -35,22 +35,21 @@ function Sidebar({
     setMoblieOpen
 }) {
     const navigate = useNavigate()
-    const location = useLocation()
     const avatar = user?.name ? user.name.split(" ").map((n) => n[0]).join("").toUpperCase().slice(0, 2) : "U"
 
 
     const inner = (
         <div className='flex flex-col h-full'>
-            <div className={`px-3 h-[52px] border-b border-black/8 shrink-0 flex items-center ${sidebarOpen ? "justify-between" : "justify-center"
+            <div className={`px-3 h-[52px] border-b border-white/10 shrink-0 flex items-center ${sidebarOpen ? "justify-between" : "justify-center"
                 }`}>
                 {sidebarOpen && (
                     <div className='flex items-center gap-2.5'>
-                        <div className='w-7 h-7 rounded-lg bg-ink flex items-center justify-center shrink-0'><GiArtificialHive size={19} className='text-amber' /></div>
+                        <div className='w-7 h-7 rounded-lg bg-[#000000] border border-[#ff9142]/25 flex items-center justify-center shrink-0 shadow-[0_4px_14px_rgba(0,0,0,0.25)]'><GiArtificialHive size={19} color='#ff9142' /></div>
                         <motion.span
                             initial={{ opacity: 0, x: -6 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.15 }}
-                            className='font-display font-semibold text-sm tracking-tight text-[#0A0A0A] whitespace-nowrap'>FresherAI</motion.span>
+                            className='font-extrabold text-sm tracking-tight text-white whitespace-nowrap'>FresherAI</motion.span>
 
                     </div>
                 )}
@@ -59,7 +58,7 @@ function Sidebar({
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => setSidebarOpen(!sidebarOpen)}
-                        className='cursor-pointer hidden md:flex text-black/30 hover:text-[#0A0A0A] transition-colors shrink-0'>
+                        className='cursor-pointer hidden md:flex text-white/35 hover:text-white transition-colors shrink-0'>
                         <FiSidebar size={15} />
 
                     </motion.button>
@@ -68,7 +67,7 @@ function Sidebar({
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => setMoblieOpen(!moblieOpen)}
-                        className='cursor-pointer md:hidden  text-black/30 hover:text-[#0A0A0A] transition-colors shrink-0'>
+                        className='cursor-pointer md:hidden  text-white/35 hover:text-white transition-colors shrink-0'>
                         <FiSidebar size={15} />
 
                     </motion.button>
@@ -82,7 +81,7 @@ function Sidebar({
                     onClick={onNewInterview}
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className={`w-full flex items-center gap-2 bg-amber text-ink font-semibold rounded-lg py-2 transition-all cursor-pointer hover:bg-amber-soft ${sidebarOpen ? "px-2.5 " : "justify-center px-0"
+                    className={`w-full flex items-center gap-2 bg-gradient-to-r from-[#ff9142] to-[#f2545b] text-[#0d0b0a] font-semibold rounded-lg py-2 transition-all shadow-[0_4px_18px_rgba(255,120,60,0.35)] cursor-pointer hover:brightness-110 ${sidebarOpen ? "px-2.5 " : "justify-center px-0"
                         }`}>
                     <FiPlus size={14} className='shrink-0' />
                     <AnimatePresence>
@@ -105,16 +104,14 @@ function Sidebar({
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.13 }}
-                        className='px-3 pt-2.5 pb-1 text-[10px] font-semibold uppercase tracking-widest text-black/30'>
+                        className='px-3 pt-2.5 pb-1 text-[10px] font-semibold uppercase tracking-widest text-white/30'>
                         Agents
 
                     </motion.p>}
             </AnimatePresence>
 
             <nav className='flex flex-col gap-0.5 px-2.5 flex-1'>
-                {NAV_ITEMS.map((nav, i) => {
-                    const isActive = location.pathname === nav.path
-                    return (
+                {NAV_ITEMS.map((nav, i) => (
                     <motion.button key={i}
                         onClick={() => {
                             navigate(nav.path);
@@ -122,11 +119,8 @@ function Sidebar({
                         }}
                         whileHover={{ x: sidebarOpen ? 3 : 0 }}
                         transition={{ duration: 0.13 }}
-                        className={`relative flex items-center gap-2.5 rounded-lg py-2 transition-colors text-xs font-medium cursor-pointer ${
-                            isActive ? "text-[#0A0A0A] bg-amber/10" : "text-black/45 hover:text-[#0A0A0A] hover:bg-black/5"
-                        } ${sidebarOpen ? "px-2.5 " : "justify-center px-0"
+                        className={`flex items-center gap-2.5 rounded-lg py-2 transition-all text-xs font-medium text-white/45 hover:text-white hover:bg-white/6 cursor-pointer ${sidebarOpen ? "px-2.5 " : "justify-center px-0"
                             }`}>
-                        {isActive && <span className='absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-4 rounded-full bg-amber' />}
                         <span className='shrink-0'>{nav.icon}</span>
 
                         {sidebarOpen &&
@@ -136,13 +130,13 @@ function Sidebar({
 
 
                     </motion.button>
-                )})}
+                ))}
 
             </nav>
 
             {/* coins */}
 
-            <div className='border-t border-black/8 p-2.5 shrink-0'>
+            <div className='border-t border-white/10 p-2.5 shrink-0'>
                 <AnimatePresence>
                     {sidebarOpen &&
                         <motion.div
@@ -151,18 +145,18 @@ function Sidebar({
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.13 }}
                             onClick={() => navigate("/billing")}
-                            className='group flex cursor-pointer items-center justify-between gap-2.5 rounded-lg border border-white/8 bg-ink px-2.5 py-1.5 mb-2.5 transition-colors hover:border-amber/25'>
+                            className='group flex cursor-pointer items-center justify-between gap-2.5 rounded-lg border border-white/[0.18] bg-[#000000]/90 backdrop-blur-2xl px-2.5 py-1.5 mb-2.5 transition-all hover:border-white/30 shadow-[0_8px_24px_rgba(0,0,0,0.35)]'>
                             <div className='flex items-center gap-1.5'>
-                                <GiTwoCoins size={15} className='text-amber shrink-0' />
+                                <GiTwoCoins size={15} className='text-yellow-500 shrink-0' />
 
                                 <div className='flex flex-col'>
-                                    <span className='text-[9px] text-white/40 font-medium'>Interview coins</span>
-                                    <span className='font-display text-xs font-semibold text-white'>{user?.interviewCoin}</span>
+                                    <span className='text-[9px] uppercase tracking-wider text-white/40 font-medium'>Interview Coins</span>
+                                    <span className='text-xs font-bold text-white'>{user?.interviewCoin}</span>
                                 </div>
                             </div>
 
                             <div className='flex items-center justify-center'>
-                                <FaCirclePlus size={16} className='text-amber/70 transition-transform duration-200 group-hover:scale-110' />
+                                <FaCirclePlus size={16} className='text-white/70 transition-transform duration-200 group-hover:scale-110' />
                             </div>
 
 
@@ -170,8 +164,8 @@ function Sidebar({
                 </AnimatePresence>
 
                 <div className={`flex items-center gap-2 ${sidebarOpen ? "" : "justify-center"}`}>
-                    <div className='w-7 h-7 rounded-full bg-ink flex items-center justify-center shrink-0'>
-                        <span className='font-display text-amber font-semibold text-[10px]'>
+                    <div className='w-7 h-7 rounded-full bg-[#000000] flex items-center justify-center shrink-0'>
+                        <span className='text-white font-bold text-[10px]'>
                             {avatar}
 
                         </span>
@@ -184,10 +178,10 @@ function Sidebar({
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 className="flex-1 min-w-0">
-                                <p className="text-[#0A0A0A] text-[11px] font-semibold truncate">
+                                <p className="text-white text-[11px] font-semibold truncate">
                                     {user?.name ?? "User"}
                                 </p>
-                                <p className="text-black/35 text-[9px] truncate">
+                                <p className="text-white/35 text-[9px] truncate">
                                     {user?.email ?? "user@email.com"}
                                 </p>
                             </motion.div>
@@ -207,7 +201,7 @@ function Sidebar({
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                                 whileHover={{ scale: 1.15 }}
-                                className='text-black/30 hover:text-[#0A0A0A] transition-colors ml-auto'>
+                                className='text-white/35 hover:text-white transition-colors ml-auto'>
                                 <FiLogOut size={13} />
                             </motion.button>
                         )}
@@ -225,7 +219,7 @@ function Sidebar({
                 animate={{ width: sidebarOpen ? 260 : 72 }}
                 transition={{ duration: 0.25, ease: "easeInOut" }}
 
-                className='hidden md:flex fixed top-0 left-0 h-screen bg-white border-r border-black/8 flex-col z-40 overflow-hidden'>
+                className='hidden md:flex fixed top-0 left-0 h-screen bg-[#0d0b0a] border-r border-white/10 flex-col z-40 overflow-hidden'>
                 {inner}
             </motion.aside>
 
@@ -248,7 +242,7 @@ function Sidebar({
                         animate={{ x: 0 }}
                         exit={{ x: -280 }}
                         transition={{ duration: 0.25, ease: "easeInOut" }}
-                        className='fixed top-0 left-0 h-screen w-[280px] max-w-[85vw] bg-white border-r border-black/8 flex flex-col z-50 md:hidden overflow-hidden'>
+                        className='fixed top-0 left-0 h-screen w-[280px] max-w-[85vw] bg-[#0d0b0a] border-r border-white/10 flex flex-col z-50 md:hidden overflow-hidden'>
                         {inner}
                     </motion.aside>
                 )}

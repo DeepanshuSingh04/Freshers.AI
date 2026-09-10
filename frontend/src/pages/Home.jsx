@@ -17,21 +17,21 @@ function Home({ setUser }) {
                 initial={{ y: -60, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className='fixed top-0 left-0 right-0 z-50 h-[52px] flex items-center justify-between px-5 bg-white/70 backdrop-blur-xl border-b border-black/5'>
+                className='fixed top-0 left-0 right-0 z-50 h-[52px] flex items-center justify-between px-5 bg-[#0d0b0a] backdrop-blur-xl border-b border-white/10'>
 
                 <div className='flex items-center gap-2'>
 
-                    <div className='w-7 h-7 rounded-lg bg-[#0A0A0A] flex items-center justify-center shadow-[0_4px_14px_rgba(0,0,0,0.18)]'>
-                        <GiArtificialHive size={15} color='white' /></div>
+                    <div className='w-7 h-7 rounded-lg bg-[#000000] border border-[#ff9142]/25 flex items-center justify-center shadow-[0_4px_14px_rgba(0,0,0,0.18)]'>
+                        <GiArtificialHive size={15} color='#ff9142' /></div>
 
-                    <span className='font-extrabold text-base tracking-tight text-[#0A0A0A]'>FresherAI</span>
+                    <span className='font-extrabold text-base tracking-tight text-white'>FresherAI</span>
                 </div>
 
                 <motion.button
                     onClick={() => setShowLogin(true)}
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.97 }}
-                    className='bg-[#0A0A0A]/80 backdrop-blur-2xl text-white font-semibold border border-white/10 rounded-md px-3 py-1.5 text-xs cursor-pointer transition-all hover:border-white/20 shadow-[0_8px_24px_rgba(0,0,0,0.25)] flex items-center gap-2'>
+                    className='bg-[#b45317] text-white font-semibold border border-[#B7791F] rounded-md px-3 py-1.5 text-xs cursor-pointer transition-all hover:bg-[#9A6419] hover:border-[#9A6419] shadow-[0_8px_24px_rgba(183,121,31,0.25)] flex items-center gap-2'>
                     Log In <FaArrowRight />
 
                 </motion.button>
@@ -39,7 +39,7 @@ function Home({ setUser }) {
             </motion.nav>
 
             {/* main area */}
-            <section className='relative pt-20 pb-14 overflow-hidden bg-[#F8F9FA]'>
+            <section className='relative pt-20 pb-14 overflow-hidden bg-[#F5F5F4]'>
                 <div className='absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-black/[0.04] blur-[90px] pointer-events-none' />
 
                 <div className='max-w-4xl mx-auto px-6 text-center'>
@@ -80,11 +80,18 @@ function Home({ setUser }) {
 
                         <motion.button
                             onClick={() => setShowLogin(true)}
-                            whileHover={{ scale: 1.05, boxShadow: "0 0 36px rgba(0,0,0,0.18)" }}
-                            whileTap={{ scale: 0.97 }}
-                            className='relative  gap-2 overflow-hidden bg-[#0A0A0A]/80 backdrop-blur-2xl text-white font-bold px-5 py-2.5 rounded-lg text-xs cursor-pointer border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all hover:border-white/20'>
-                            <span className='flex items-center justify-center gap-2'> Get Started For Free <FaArrowRight /></span>
-                            <span className='absolute inset-0 bg-gradient-to-br from-white/[0.1] via-transparent to-transparent pointer-events-none rounded-lg' />
+                            whileHover={{
+                            scale: 1.05,
+                            boxShadow: "0 0 36px rgba(255,145,66,0.35)"
+                        }}
+                        whileTap={{ scale: 0.97 }}
+                            className='relative gap-2 overflow-hidden bg-[#b45317] text-white font-bold px-5 py-2.5 rounded-lg text-xs cursor-pointer border border-[#ff9142] shadow-[0_8px_32px_rgba(255,145,66,0.3)] transition-all hover:bg-[#ff9142]/90'
+                        >
+                        <span className='flex items-center justify-center gap-2'>
+                        Get Started For Free <FaArrowRight />
+                        </span>
+
+                        <span className='absolute inset-0 bg-gradient-to-br from-white/[0.1] via-transparent to-transparent pointer-events-none rounded-lg' />
                         </motion.button>
                     </motion.div>
                 </div>
@@ -103,7 +110,7 @@ function Home({ setUser }) {
             </section>
 
             {/* Agents */}
-            <section className='py-16 bg-[#F8F9FA]'>
+            <section className='py-16 bg-[#F5F5F4]'>
                 <div className='max-w-5xl mx-auto px-6'>
                     <div className='text-center mb-10'>
                         <div className='inline-flex items-center px-3 py-1.5 rounded-full border border-black/15 bg-black/5 text-black/70 text-xs font-medium mb-4'>
@@ -177,15 +184,15 @@ function Home({ setUser }) {
 
             {showLogin && <LoginModel onClose={() => setShowLogin(false)} setUser={setUser} />}
 
-                <footer className='border-t border-black/7 py-6 text-center bg-white'>
+                <footer className='border-t border-white/10 py-6 text-center bg-[#0d0b0a]'>
                 <div className='flex items-center justify-center gap-2 mb-1.5'>
-                    <div className='w-5 h-5 rounded-md bg-[#0A0A0A] flex items-center justify-center'>
-                        <GiArtificialHive size={11} color='white'/>
+                    <div className='w-5 h-5 rounded-md bg-[#000000] border border-[#ff9142]/25 flex items-center justify-center'>
+                        <GiArtificialHive size={11} color='#ff9142'/>
 
                     </div>
-                    <span className='font-bold text-xs text-[#0A0A0A]/70'>FresherAI</span>
+                    <span className='font-bold text-xs text-white/70'>FresherAI</span>
                 </div>
-                <div className='text-black/50 text-xs'>
+                <div className='text-white/50 text-xs'>
                 © {new Date().getFullYear()} Fresher.AI · All rights reserved
                 </div>
 

@@ -13,7 +13,7 @@ function RoadmapResult({roadmap, onClear}) {
         <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-         className='relative overflow-hidden bg-[#000000]/90 backdrop-blur-2xl border border-white/10 rounded-2xl p-5 mb-5 shadow-[0_8px_32px_rgba(0,0,0,0.22)]'>
+         className='relative overflow-hidden bg-[#000000]/90 backdrop-blur-2xl border border-white/[0.18] rounded-2xl p-5 mb-5 shadow-[0_8px_32px_rgba(0,0,0,0.22)]'>
             <div className='absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent pointer-events-none'/>
 
             <div className='relative flex items-start justify-between mb-4'>
@@ -49,7 +49,7 @@ function RoadmapResult({roadmap, onClear}) {
         </motion.div>
 
         <div className='mb-4'>
-            <p className='text-xs text-black/40 font-semibold uppercase tracking-widest mb-3 flex items-center gap-2'>
+            <p className='text-xs text-white/40 font-semibold uppercase tracking-widest mb-3 flex items-center gap-2'>
             <FiMap size={12}/> Learning Modules </p>
             <div className='flex flex-col gap-2'>
                 {

@@ -42,20 +42,20 @@ function ResumeBuilder({user , setUser}) {
       return <PreviewResume data={data} user={user} setUser={setUser} onBack={()=>setShowPreview(false)}/>
     }
   return (
-    <div className='min-h-screen bg-white text-[#0A0A0A] flex flex-col'>
+    <div className='min-h-screen bg-[#0b0a09] bg-gradient-to-br from-[#120f0c] via-[#0b0a09] to-[#0e0b0a] text-white/90 flex flex-col'>
       <motion.nav 
         initial={{ y: -60, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-        className='sticky top-0 z-20 border-b border-black/8 bg-white/80 backdrop-blur-xl'>
+        className='sticky top-0 z-20 border-b border-white/10 bg-[#0d0b0a]/70 backdrop-blur-xl'>
             <div className='mx-auto flex h-12 max-w-7xl items-center justify-between px-3 sm:px-5'>
                 <div onClick={()=>navigate("/dashboard")}
                  className='flex cursor-pointer items-center gap-1.5'>
-                    <span className='font-display text-sm font-semibold sm:text-base text-[#0A0A0A]'>FresherAI</span>
-                    <span className='hidden rounded bg-amber/12 text-amber-deep px-1.5 py-0.5 text-[10px] font-medium sm:block'>Resume Builder</span>
+                    <span className='text-sm font-extrabold sm:text-base text-white'>FresherAI</span>
+                    <span className='hidden rounded bg-white/6 px-1.5 py-0.5 text-[10px] text-white/50 sm:block'>Resume Builder</span>
                 </div>
 
-                <button onClick={()=>setShowPreview(true)} className='flex h-8 items-center justify-center  rounded-lg border border-black/15 text-black/60 transition px-2 hover:border-amber hover:text-amber-deep'>
+                <button onClick={()=>setShowPreview(true)} className='flex h-8 items-center justify-center  rounded-lg border border-white/12 text-white/55 transition px-2 hover:border-white/40 hover:text-white'>
                 <FiEye size={13}/></button>
 
             </div>
@@ -69,29 +69,29 @@ function ResumeBuilder({user , setUser}) {
           <div className='mx-auto w-full max-w-2xl'>
             <div className='mb-4'>
               <div className='flex items-center justify-between mb-1.5'>
-                <p className='text-[10px] text-black/40 font-medium'>
+                <p className='text-[10px] text-white/40 font-medium'>
                 STEP {currentStep} OF {TOTAL_STEPS} 
                 </p>
 
-                <p className='hidden text-[10px] text-black/40 sm:block'>
+                <p className='hidden text-[10px] text-white/40 sm:block'>
                 {Math.round(progressPct)}% complete
                 </p>
               </div>
 
-              <div className='w-full h-1 bg-black/8 rounded-full overflow-hidden'>
-              <div className='h-full bg-amber rounded-full transition-all duration-300' style={{width: `${progressPct}%`}} />
+              <div className='w-full h-1 bg-white/10 rounded-full overflow-hidden'>
+              <div className='h-full bg-[#ff9142] rounded-full transition-all duration-300' style={{width: `${progressPct}%`}} />
               </div>
 
               <div className='mt-3'>
-                <h2 className='font-display text-xl font-semibold sm:text-2xl'>{activeStep.title}</h2>
-                <p className='mt-1 text-xs text-black/45 sm:text-sm'>{activeStep.subtitle}</p>
+                <h2 className='text-xl font-bold sm:text-2xl'>{activeStep.title}</h2>
+                <p className='mt-1 text-xs text-white/45 sm:text-sm'>{activeStep.subtitle}</p>
               </div>
             </div>
 
-            <div className='border-t border-black/8 mb-4'/>
+            <div className='border-t border-white/10 mb-4'/>
              <ResumeForm step={currentStep} data={data} setData={setData}/>
 
-             <div className='border-t border-black/8 mt-6 mb-4'/>
+             <div className='border-t border-white/10 mt-6 mb-4'/>
 
 
              {/* Navigation buttons */}
@@ -102,8 +102,8 @@ function ResumeBuilder({user , setUser}) {
               disabled={currentStep === 1}
                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border transition-all
                 ${currentStep === 1
-                  ? "border-black/8 text-black/25 cursor-not-allowed"
-                  : "border-black/20 text-black/60 hover:border-black/40 hover:text-[#0A0A0A]"
+                  ? "border-white/10 text-white/25 cursor-not-allowed"
+                  : "border-white/15 text-white/55 hover:border-white/30 hover:text-white"
                 }`}>
                   <FiArrowLeft size={15}/>
                   <span className='hidden sm:block'>Previous</span>
@@ -115,21 +115,21 @@ function ResumeBuilder({user , setUser}) {
                   <button key={s.step}
                   onClick={()=>setCurrentStep(s.step)}
                    className={`rounded-full transition-all ${s.step === currentStep
-                    ? "w-4 h-1.5 bg-amber"
+                    ? "w-4 h-1.5 bg-[#ff9142]"
                     : s.step < currentStep
-                      ? "w-1.5 h-1.5 bg-amber/40"
-                      : "w-1.5 h-1.5 bg-black/12"
+                      ? "w-1.5 h-1.5 bg-white/35"
+                      : "w-1.5 h-1.5 bg-white/12"
                     }`}/>
                 ))}
               </div>
 
               {isLastStep ? (
-                <button onClick={()=>setShowPreview(true)} className='flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-amber text-ink hover:bg-amber-soft transition-colors'>
+                <button onClick={()=>setShowPreview(true)} className='flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-[#000000]/90 backdrop-blur-2xl border border-white/10 text-white shadow-[0_8px_24px_rgba(0,0,0,0.25)] hover:border-white/20 transition-all'>
                   <FiEye size={13}/>
                   <span className='hidden sm:block'>Preview Resume</span>
                 </button>
               ):(
-              <button onClick={goNext} className='flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-amber text-ink hover:bg-amber-soft transition-colors'>
+              <button onClick={goNext} className='flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-[#000000]/90 backdrop-blur-2xl border border-white/10 text-white shadow-[0_8px_24px_rgba(0,0,0,0.25)] hover:border-white/20 transition-all'>
                   <span className='hidden sm:block'>Next</span><FiArrowRight size={15}/></button>
               )}
              </div>

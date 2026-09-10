@@ -13,11 +13,11 @@ function ModuleCard({ mod, index }) {
       transition={{ delay: index * 0.06, duration: 0.35 }}
       whileHover={{ y: -2 }}
       onClick={()=>setOpen(!open)}
-    className='relative overflow-hidden bg-[#000000]/90 backdrop-blur-2xl border border-white/10 rounded-xl cursor-pointer select-none shadow-[0_4px_18px_rgba(0,0,0,0.2)] hover:border-white/20 transition-all'>
+    className='relative overflow-hidden bg-[#000000]/90 backdrop-blur-2xl border border-white/[0.18] rounded-xl cursor-pointer select-none shadow-[0_4px_18px_rgba(0,0,0,0.2)] hover:border-white/30 transition-all'>
         <div className='absolute inset-0 bg-gradient-to-br from-white/[0.07] via-transparent to-transparent pointer-events-none'/>
 
         <div className='relative flex items-center gap-3 p-4'>
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold bg-white/5 border border-white/10"
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold bg-white/5 border border-white/[0.18]"
           style={{ color: difficultyColor[mod.difficulty] }}>{index + 1}</div>
 
             <div className='flex-1 min-w-0'>
@@ -68,7 +68,7 @@ function ModuleCard({ mod, index }) {
                             <motion.button 
                             whileHover={{ scale: 1.03 }} 
                             whileTap={{ scale: 0.97 }}
-                    className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border  border-white/10 text-white/45 bg-white/5 hover:bg-white/10 transition-colors">
+                    className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg border  border-white/[0.18] text-white/45 bg-white/5 hover:bg-white/10 transition-colors">
                         <FiBookOpen size={12}/> Read Article
 
                             </motion.button>

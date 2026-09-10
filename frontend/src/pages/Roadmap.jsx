@@ -92,20 +92,29 @@ getAllRoadmaps()
 
 
     return (
-        <div className='min-h-screen bg-white text-[#0A0A0A] flex flex-col'>
+        <div
+            className='min-h-screen text-white/90 flex flex-col'
+            style={{
+                background: `
+                    radial-gradient(900px 600px at 15% -10%, rgba(16,185,129,0.14), transparent 60%),
+                    radial-gradient(800px 700px at 102% 8%, rgba(245,166,35,0.11), transparent 55%),
+                    radial-gradient(1000px 800px at 50% 120%, rgba(20,120,100,0.16), transparent 62%),
+                    linear-gradient(180deg, #0b1310 0%, #0a100e 55%, #0d1512 100%)
+                `,
+            }}>
             <motion.nav
                 initial={{ y: -60, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className='sticky top-0 z-20 border-b border-black/8 bg-white/80 backdrop-blur-xl'>
+                className='sticky top-0 z-20 border-b border-white/10 bg-[#0d0b0a]/70 backdrop-blur-xl'>
                 <div className='mx-auto flex h-12 max-w-7xl items-center justify-between px-3 sm:px-5'>
                     <div onClick={() => navigate("/dashboard")}
                         className='flex cursor-pointer items-center gap-1.5'>
-                        <span className='text-sm font-extrabold sm:text-base text-[#0A0A0A]'>FresherAI</span>
-                        <span className='hidden rounded bg-black/5 px-1.5 py-0.5 text-[10px] text-black/50 sm:block'>Roadmap Builder</span>
+                        <span className='text-sm font-extrabold sm:text-base text-white'>FresherAI</span>
+                        <span className='hidden rounded bg-white/6 px-1.5 py-0.5 text-[10px] text-white/50 sm:block'>Roadmap Builder</span>
                     </div>
 
-                    <button onClick={() => setHistoryOpen(!historyOpen)} className='flex h-8 items-center justify-center gap-1  rounded-lg border border-black/15 text-black/60 transition px-2 hover:border-[#0A0A0A] hover:text-[#0A0A0A] text-[10px]'>
+                    <button onClick={() => setHistoryOpen(!historyOpen)} className='flex h-8 items-center justify-center gap-1  rounded-lg border border-white/12 text-white/55 transition px-2 hover:border-white/40 hover:text-white text-[10px]'>
                         <FiClock />
                         <span className="hidden sm:inline">History</span>
                     </button>
@@ -125,15 +134,15 @@ getAllRoadmaps()
                                 transition={{ duration: 0.4 }}
                                 className='flex flex-col items-center justify-center min-h-[60vh] text-center px-2 sm:px-4'>
                                 <div className='text-4xl sm:text-5xl mb-4 sm:mb-5'>
-                                    <BsRocketTakeoff className='text-gray-700' />
+                                    <BsRocketTakeoff className='text-emerald-400/60' />
 
                                 </div>
 
-                                <h3 className='text-xl sm:text-2xl font-bold text-[#0A0A0A] mb-2'>AI Roadmap Generator</h3>
+                                <h3 className='text-xl sm:text-2xl font-bold text-white mb-2'>AI Roadmap Generator</h3>
 
-                                <p className='text-black/45 text-sm max-w-xs sm:max-w-md mb-1'> Generate a personalised roadmap for your dream job.</p>
+                                <p className='text-white/45 text-sm max-w-xs sm:max-w-md mb-1'> Generate a personalised roadmap for your dream job.</p>
 
-                                <p className='text-black/35 text-xs sm:text-sm max-w-xs sm:max-w-md'>
+                                <p className='text-white/35 text-xs sm:text-sm max-w-xs sm:max-w-md'>
                                     Choose a role and let AI build a complete learning path.
                                 </p>
 
@@ -172,7 +181,7 @@ getAllRoadmaps()
 
             </main>
 
-            <div className='fixed bottom-0 left-0 right-0 z-30 pb-3 sm:pb-4 pt-3 px-3 sm:px-4 bg-gradient-to-t from-white via-white/95 to-transparent'>
+            <div className='fixed bottom-0 left-0 right-0 z-30 pb-3 sm:pb-4 pt-3 px-3 sm:px-4 bg-gradient-to-t from-[#0a100e] via-[#0a100e]/95 to-transparent'>
                 <div className='max-w-3xl mx-auto'>
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
@@ -301,19 +310,19 @@ getAllRoadmaps()
                                 animate={{ x: 0 }}
                                 exit={{ x: 320 }}
                                 transition={{ type: "spring", stiffness: 320, damping: 32 }}
-                                className='fixed right-0 top-0 bottom-0 z-50 w-[280px] sm:w-[300px] max-w-[85vw] bg-white border-l border-black/8 flex flex-col overflow-y-auto shadow-[0_0_40px_rgba(0,0,0,0.1)]'>
-                                <div className='flex items-center justify-between px-4 py-3 sm:py-4 border-b border-black/8 sticky top-0 bg-white/90 backdrop-blur-xl'>
-                                    <span className='text-sm font-semibold text-[#0A0A0A]'>Previous Roadmaps</span>
-                                    <button onClick={() => setHistoryOpen(false)} className='text-black/35 hover:text-[#0A0A0A] transition-colors'><FiX size={16} /></button>
+                                className='fixed right-0 top-0 bottom-0 z-50 w-[280px] sm:w-[300px] max-w-[85vw] bg-[#0d0b0a] border-l border-white/10 flex flex-col overflow-y-auto shadow-[0_0_40px_rgba(0,0,0,0.45)]'>
+                                <div className='flex items-center justify-between px-4 py-3 sm:py-4 border-b border-white/10 sticky top-0 bg-[#0d0b0a]/85 backdrop-blur-xl'>
+                                    <span className='text-sm font-semibold text-white'>Previous Roadmaps</span>
+                                    <button onClick={() => setHistoryOpen(false)} className='text-white/40 hover:text-white transition-colors'><FiX size={16} /></button>
                                 </div>
 
                                 <div className='flex flex-col gap-2 p-3'>
                                     {historyLoading ? (
-                                        <p className="text-xs text-black/35 text-center py-6">Loading…</p>
+                                        <p className="text-xs text-white/35 text-center py-6">Loading…</p>
                                     )
                                         : history.length === 0 ?
                                             (
-                                                <p className="text-xs text-black/35 text-center py-6">No roadmaps yet.</p>
+                                                <p className="text-xs text-white/35 text-center py-6">No roadmaps yet.</p>
                                             ) :
                                             (
                                                 history.map((h, i) => (

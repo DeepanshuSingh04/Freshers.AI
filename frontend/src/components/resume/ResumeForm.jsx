@@ -4,7 +4,7 @@ import { FiPlus, FiTrash2 } from 'react-icons/fi'
 function Input({label, value, onChange, placeholder, type = "text"}){
     return(
         <div className='flex flex-col gap-1'>
-            <label className='text-[11px] font-medium text-black/60'>
+            <label className='text-[10px] font-semibold text-white/65 uppercase tracking-wider'>
                 {label}
             </label>
             <input 
@@ -12,7 +12,7 @@ function Input({label, value, onChange, placeholder, type = "text"}){
             placeholder={placeholder}
             onChange={(e)=>onChange(e.target.value)}
             value={value}
-            className='bg-white border border-black/15 text-[#0A0A0A] text-xs rounded-lg px-2.5 py-2 outline-none focus:border-amber transition-colors placeholder-black/30'
+            className='bg-white/5 border-2 border-white/15 text-white text-xs rounded-lg px-2.5 py-2 outline-none focus:border-white/40 transition-colors placeholder-white/30 shadow-[0_2px_8px_rgba(0,0,0,0.2)]'
             />
         </div>
     )
@@ -21,7 +21,7 @@ function Input({label, value, onChange, placeholder, type = "text"}){
 function TextArea({label, value, onChange, placeholder, rows = 3}){
     return(
         <div className='flex flex-col gap-1'>
-            <label className='text-[11px] font-medium text-black/60'>
+            <label className='text-[10px] font-semibold text-white/65 uppercase tracking-wider'>
                 {label}
             </label>
             <textarea 
@@ -29,7 +29,7 @@ function TextArea({label, value, onChange, placeholder, rows = 3}){
             onChange={(e)=>onChange(e.target.value)}
             value={value}
             rows={rows}
-            className='bg-white border border-black/15 text-[#0A0A0A] text-xs rounded-lg px-2.5 py-2 outline-none focus:border-amber transition-colors placeholder-black/30 resize-none'
+            className='bg-white/5 border-2 border-white/15 text-white text-xs rounded-lg px-2.5 py-2 outline-none focus:border-white/40 transition-colors placeholder-white/30 resize-none shadow-[0_2px_8px_rgba(0,0,0,0.2)]'
             />
         </div>
     )
@@ -37,9 +37,9 @@ function TextArea({label, value, onChange, placeholder, rows = 3}){
 
 function EntryCard({ children, onRemove }){
     return(
-        <div className='relative overflow-hidden bg-white border border-black/10 border-l-2 border-l-amber rounded-lg p-3'>
+        <div className='relative overflow-hidden bg-[#F8F9FA] border-2 border-white/12 rounded-xl p-3 shadow-[0_2px_10px_rgba(0,0,0,0.05)]'>
             <button onClick={onRemove}
-            className='absolute top-2.5 right-2.5 z-10 text-black/35 hover:text-red-500 transition-colors'>
+            className='absolute top-2.5 right-2.5 z-10 text-white/35 hover:text-red-500 transition-colors'>
             <FiTrash2 size={13}/>
             </button>
             <div className='relative flex flex-col gap-2.5 pr-6'>{children}</div>
@@ -77,7 +77,7 @@ function ResumeForm({step , data , setData}) {
             value={data.summary}
             />
 
-            <p className='text-[10px] text-black/40'>
+            <p className='text-[10px] text-white/40'>
             Leave empty to skip this section.
             </p>
 
@@ -97,7 +97,7 @@ function ResumeForm({step , data , setData}) {
             value={data.skills}
             />
 
-            <p className='text-[10px] text-black/40'>
+            <p className='text-[10px] text-white/40'>
             Separate each skill with a comma.
             </p>
 
@@ -128,7 +128,7 @@ function ResumeForm({step , data , setData}) {
         <div className='flex flex-col gap-3'>
 
            {data.experience.length === 0 && (
-           <p className='text-xs text-black/40 text-center py-3'>
+           <p className='text-xs text-white/40 text-center py-3'>
             No experience added yet. Click below to add.
            </p>)}
 
@@ -145,7 +145,7 @@ function ResumeForm({step , data , setData}) {
             </EntryCard>
            ))}
 
-           <button onClick={addExp} className='flex items-center justify-center gap-1.5 w-full py-2.5 border border-dashed border-black/20 rounded-lg text-xs text-black/45 hover:border-amber hover:text-amber-deep transition-all'>
+           <button onClick={addExp} className='flex items-center justify-center gap-1.5 w-full py-2.5 border border-dashed border-white/15 rounded-xl text-xs text-white/45 hover:border-white/30 hover:text-white transition-all'>
            <FiPlus size={13} />Add Experience
            </button>
 
@@ -179,7 +179,7 @@ function ResumeForm({step , data , setData}) {
         <div className='flex flex-col gap-3'>
 
            {data.projects.length === 0 && (
-           <p className='text-xs text-black/40 text-center py-3'>
+           <p className='text-xs text-white/40 text-center py-3'>
             No project added yet. Click below to add.
            </p>)}
 
@@ -196,7 +196,7 @@ function ResumeForm({step , data , setData}) {
             </EntryCard>
            ))}
 
-           <button onClick={addPro} className='flex items-center justify-center gap-1.5 w-full py-2.5 border border-dashed border-black/20 rounded-lg text-xs text-black/45 hover:border-amber hover:text-amber-deep transition-all'>
+           <button onClick={addPro} className='flex items-center justify-center gap-1.5 w-full py-2.5 border border-dashed border-white/15 rounded-xl text-xs text-white/45 hover:border-white/30 hover:text-white transition-all'>
            <FiPlus size={13} />Add Project
            </button>
 
@@ -229,7 +229,7 @@ function ResumeForm({step , data , setData}) {
         <div className='flex flex-col gap-3'>
 
            {data.education.length === 0 && (
-           <p className='text-xs text-black/40 text-center py-3'>
+           <p className='text-xs text-white/40 text-center py-3'>
             No Education added yet. Click below to add.
            </p>)}
 
@@ -249,7 +249,7 @@ function ResumeForm({step , data , setData}) {
             </EntryCard>
            ))}
 
-           <button onClick={addEdu} className='flex items-center justify-center gap-1.5 w-full py-2.5 border border-dashed border-black/20 rounded-lg text-xs text-black/45 hover:border-amber hover:text-amber-deep transition-all'>
+           <button onClick={addEdu} className='flex items-center justify-center gap-1.5 w-full py-2.5 border border-dashed border-white/15 rounded-xl text-xs text-white/45 hover:border-white/30 hover:text-white transition-all'>
            <FiPlus size={13} />Add Education
            </button>
 

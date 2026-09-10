@@ -60,12 +60,12 @@ const Navbar = ({ label }) => {
             initial={{ y: -60, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className='fixed inset-x-0 top-0 z-20 border-b border-black/8 bg-white/80 backdrop-blur-xl'>
+            className='fixed inset-x-0 top-0 z-20 border-b border-white/10 bg-[#0d0b0a]/70 backdrop-blur-xl'>
             <div className='mx-auto flex h-12 max-w-7xl items-center justify-start px-3 sm:px-5'>
                 <div onClick={() => navigate("/dashboard")}
                     className='flex cursor-pointer items-center gap-1.5'>
-                    <span className='text-sm font-extrabold sm:text-base text-[#0A0A0A]'>FresherAI</span>
-                    <span className='hidden rounded bg-black/5 px-1.5 py-0.5 text-[10px] text-black/50 sm:block'>{label}</span>
+                    <span className='text-sm font-extrabold sm:text-base text-white'>FresherAI</span>
+                    <span className='hidden rounded bg-white/6 px-1.5 py-0.5 text-[10px] text-white/50 sm:block'>{label}</span>
                 </div>
 
             </div>
@@ -118,19 +118,26 @@ function Scorer({ user, setUser }) {
     // scorer section
 
     if (resume) return (
-        <div className='min-h-screen bg-white text-[#0A0A0A]'>
+        <div className='min-h-screen text-white/90' style={{
+            background: `
+                radial-gradient(900px 600px at 12% -10%, rgba(87,58,38,0.16), transparent 60%),
+                radial-gradient(800px 700px at 105% 10%, rgba(46,28,18,0.20), transparent 55%),
+                radial-gradient(1000px 820px at 50% 120%, rgba(35,20,12,0.28), transparent 62%),
+                linear-gradient(180deg, #0f0b08 0%, #0a0807 55%, #100c09 100%)
+            `,
+        }}>
             <Navbar label="Resume Scorer" />
 
             <section className='max-w-6xl mx-auto px-3 pt-18 sm:pt-20 pb-8 space-y-3.5'>
                 {/* header */}
                 <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
                     <div>
-                        <p className='text-[10px] text-black/40 tracking-widest uppercase mb-0.5'>Resume Analysis</p>
+                        <p className='text-[10px] text-white/40 tracking-widest uppercase mb-0.5'>Resume Analysis</p>
                         <h2 className='text-lg font-bold'>{resume?.name}</h2>
 
                     </div>
                     <button onClick={() => dispatch(setResume(null))}
-                        className='text-[10px] sm:text-xs text-black/50 hover:text-[#0A0A0A] border border-black/15 hover:border-black/35 px-2.5 py-1 rounded-lg transition-colors'>Re-upload</button>
+                        className='text-[10px] sm:text-xs text-white/50 hover:text-white border border-white/12 hover:border-white/30 px-2.5 py-1 rounded-lg transition-colors'>Re-upload</button>
                 </div>
 
                 {/* Score */}
@@ -256,7 +263,14 @@ function Scorer({ user, setUser }) {
     )
     //upload section
     return (
-        <div className='min-h-screen bg-white text-[#0A0A0A]'>
+        <div className='min-h-screen text-white/90' style={{
+            background: `
+                radial-gradient(900px 600px at 12% -10%, rgba(87,58,38,0.16), transparent 60%),
+                radial-gradient(800px 700px at 105% 10%, rgba(46,28,18,0.20), transparent 55%),
+                radial-gradient(1000px 820px at 50% 120%, rgba(35,20,12,0.28), transparent 62%),
+                linear-gradient(180deg, #0f0b08 0%, #0a0807 55%, #100c09 100%)
+            `,
+        }}>
             <Navbar label="Resume Scorer" />
 
 
