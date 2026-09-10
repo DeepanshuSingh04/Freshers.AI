@@ -17,7 +17,7 @@ function Home({ setUser }) {
                 initial={{ y: -60, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className='fixed top-0 left-0 right-0 z-50 h-[52px] flex items-center justify-between px-5 bg-[#0d0b0a] backdrop-blur-xl border-b border-white/10'>
+                className='fixed top-0 left-0 right-0 z-50 h-[56px] flex items-center justify-between px-5 bg-[#0d0b0a] backdrop-blur-xl border-b border-white/10'>
 
                 <div className='flex items-center gap-2'>
 
@@ -39,7 +39,7 @@ function Home({ setUser }) {
             </motion.nav>
 
             {/* main area */}
-            <section className='relative pt-20 pb-14 overflow-hidden bg-[#F5F5F4]'>
+            <section className='relative pt-20 pb-14 overflow-hidden bg-[#E4E4E7]'>
                 <div className='absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-black/[0.04] blur-[90px] pointer-events-none' />
 
                 <div className='max-w-4xl mx-auto px-6 text-center'>
@@ -110,7 +110,7 @@ function Home({ setUser }) {
             </section>
 
             {/* Agents */}
-            <section className='py-16 bg-[#F5F5F4]'>
+            <section className='py-16 bg-[#E4E4E7]'>
                 <div className='max-w-5xl mx-auto px-6'>
                     <div className='text-center mb-10'>
                         <div className='inline-flex items-center px-3 py-1.5 rounded-full border border-black/15 bg-black/5 text-black/70 text-xs font-medium mb-4'>
