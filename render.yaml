@@ -1,0 +1,74 @@
+services:
+  - type: keyvalue
+    name: freshers-ai-redis
+    region: singapore
+    plan: free
+    ipAllowList: []
+
+  - type: web
+    name: freshers-ai-api
+    runtime: node
+    region: singapore
+    plan: free
+    rootDir: backend
+    buildCommand: npm ci && npm ci --prefix gateway && npm ci --prefix services/auth && npm ci --prefix services/resume && npm ci --prefix services/interview && npm ci --prefix services/roadmap && npm ci --prefix services/billing
+    startCommand: node start-all.js
+    healthCheckPath: /
+    envVars:
+      - key: FRONTEND_URL
+        fromService:
+          name: freshers-ai-frontend
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: REDIS_URL
+        fromService:
+          name: freshers-ai-redis
+          type: keyvalue
+          property: connectionString
+      - key: AUTH_SERVICE_URL
+        value: http://127.0.0.1:6001
+      - key: RESUME_SERVICE_URL
+        value: http://127.0.0.1:6002
+      - key: INTERVIEW_SERVICE_URL
+        value: http://127.0.0.1:6003
+      - key: ROADMAP_SERVICE_URL
+        value: http://127.0.0.1:6004
+      - key: BILLING_SERVICE_URL
+        value: http://127.0.0.1:6005
+      - key: MONGODB_URL
+        sync: false
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_CLIENT_EMAIL
+        sync: false
+      - key: FIREBASE_PRIVATE_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: YOUTUBE_API_KEY
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+
+  - type: web
+    name: freshers-ai-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci --include=dev && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_BACKEND_URL
+        fromService:
+          name: freshers-ai-api
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: VITE_FIREBASE_APIKEY
+        sync: false
+      - key: VITE_RAZORPAY_KEY_ID
+        sync: false
