@@ -124,41 +124,6 @@ fresherAI/
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v18+ recommended)
-- MongoDB instance
-- Redis (or use the provided `docker-compose.yml`)
-- Firebase project (Admin SDK service account + client config)
-- Groq API key
-- Razorpay account/keys
-
-### Setup
-
-```bash
-# Clone the repo
-git clone https://github.com/DeepanshuSingh04/Freshers.AI.git
-cd Freshers.AI
-
-# Start Redis
-cd backend
-docker-compose up -d
-
-# Install & run each backend service (repeat for auth, billing, interview, resume, roadmap, gateway)
-cd services/<service-name>
-npm install
-npm run dev
-
-# Install & run the frontend
-cd ../../frontend
-npm install
-npm run dev
-```
-
-Each service and the gateway require their own `.env` file (see each service's folder) with variables such as `MONGO_URI`, `JWT_SECRET_KEY` / Firebase credentials, `GROQ_API_KEY`, `RAZORPAY_KEY_ID`/`RAZORPAY_KEY_SECRET`, `REDIS_HOST`, and service URLs for the gateway (`AUTH_SERVICE_URL`, `RESUME_SERVICE_URL`, `INTERVIEW_SERVICE_URL`, `ROADMAP_SERVICE_URL`, `BILLING_SERVICE_URL`).
-
----
 
 ## 📌 Live Demo
 
