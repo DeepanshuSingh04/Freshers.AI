@@ -47,13 +47,31 @@ function App() {
   },[])
 
 
-  if(loading){
-    return(
-      <div className="fixed top-0 left-0 w-full z-[9999]">
-        <div className="h-1 bg-black animate-pulse w-full" />
+if (loading) {
+  return (
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#F8F9FA]">
+      
+      <div className="flex items-center gap-2 mb-6">
+        <div className="w-10 h-10 rounded-xl bg-[#0A0A0A] flex items-center justify-center shadow-lg">
+          <span className="text-white font-bold text-lg">F</span>
+        </div>
+
+        <span className="text-xl font-extrabold tracking-tight text-[#0A0A0A]">
+          FresherAI
+        </span>
       </div>
-    )
-  }
+
+      <div className="w-40 h-1 bg-black/10 rounded-full overflow-hidden">
+        <div className="h-full w-1/2 bg-[#0A0A0A] rounded-full animate-pulse" />
+      </div>
+
+      <p className="mt-4 text-xs text-black/40">
+        Getting things ready...
+      </p>
+
+    </div>
+  )
+}
 
   return (
    <>
